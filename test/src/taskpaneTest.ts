@@ -11,6 +11,7 @@ Office.initialize = async () => {
 
     const testServerResponse: object = await pingTestServer(port);
     if (testServerResponse["status"] === 200) {
+        // initializeDebugger();
         await runCfTests(testServerResponse["platform"]);
         await sendTestResults(testValues, port);
         if (testServerResponse["platform"] === "Windows") {
